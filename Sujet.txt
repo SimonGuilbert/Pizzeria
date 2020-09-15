@@ -1,0 +1,13 @@
+La première idée de projet : gestion de la pizzeria avec la partie création de la carte, le menu du jour, les clients, la réservation et la vente à emporter
+
+Les clients sont créés simplement
+
+Il n'y a pas de gestion de vente (Stripe, Paypal), pas dans l'immédiat
+
+Pas d'UI
+
+Seulement les endpoints API
+
+Il faut donc gérer les relations entre les collections comme on a vu sur la dernière séance
+
+Réutiliser le template que nous avons créé pour ce cas
