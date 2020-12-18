@@ -2,6 +2,9 @@
 //dispatch them to corresponding behaviours
 const express = require('express');
 
+// File upload
+const fileUpload = require('express-fileupload')
+
 //Use chalk to add colours on the console
 const chalk = require('chalk');
 
@@ -60,6 +63,27 @@ loggers.add('errorLogger', {
 
 const infoLogger = loggers.get('infoLogger');
 
+// File upload
+const fs = require('fs');
+app.use(fileUpload());
+
+// Upload Endpoint
+app.post('/upload', (req, res) => {
+  console.log("FICHIER RECU")
+  if (req.files === null) {
+    return res.status(400).json({ msg: 'No file uploaded' });
+  }
+
+  const file = req.files.file;
+  
+  if (fs.existsSync(`${__dirname}/pizzeria/public/uploads/${file.name}`)) { 
+      console.log("Une image existe deja pour le produit "+file.name.substr(0,file.name.length-4)+" ! Il faut la supprimer dans public/uploads si vous voulez en ajouter une nouvelle")
+    } else {
+      file.mv(`${__dirname}/pizzeria/public/uploads/${file.name}`);
+    } return res;
+});
+
+
 //Connecting to MongoDB (async/await approach)
 const connectDb = async () => {
     await mongoose.connect('mongodb://localhost:27017/pizzeria', {useNewUrlParser: true, useUnifiedTopology : true}).then(
@@ -79,15 +103,13 @@ const connectDb = async () => {
   
 //Accessing the routes
 const pizzaRoutes = require('./routes/pizza');
-const clientRoutes = require('./routes/client');
-const orderRoutes = require('./routes/order');
-const reservationRoutes = require('./routes/reservation');
+const boissonRoutes = require('./routes/boisson');
+const dessertRoutes = require('./routes/dessert');
 
 //Acces the routes
 app.use('/api/v1/', pizzaRoutes);
-app.use('/api/v1/', clientRoutes);
-app.use('/api/v1/', orderRoutes);
-app.use('/api/v1/', reservationRoutes);
+app.use('/api/v1/', boissonRoutes);
+app.use('/api/v1/', dessertRoutes);
 
 //When there is no route that caught the incoming request
 //use the 404 middleware
@@ -102,3 +124,5 @@ app.listen(3000, () => {
 
 //Print out where the server is
 console.log(chalk.green("Server is running on port: 3000"));
+
+

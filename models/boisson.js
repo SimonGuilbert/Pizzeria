@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var PizzaSchema = new Schema({
+var BoissonSchema = new Schema({
   name : String,
   price : String,
   desc : String,
   duJour : String,
   });
 
-module.exports = mongoose.model('Pizza', PizzaSchema);
+module.exports = mongoose.model('Boisson', BoissonSchema);
