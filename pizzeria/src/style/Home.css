@@ -1,0 +1,37 @@
+
+.bienvenue {
+    text-align: center;
+    padding-top: 40px;
+    font-size: 42px;
+}
+
+.boutons {
+    width: 40%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.big {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.small {
+    font-size: 10px;
+    text-align: center;
+}
+
+.bouton {
+    width: 45%;
+}
+
+
+body {
+background-color: #212121;
+color: white;
+min-width:1100px;
+}
+
+
+
