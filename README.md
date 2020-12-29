@@ -2,7 +2,7 @@
 A web interface to manage a pizzeria (meals, orders, clients, ...) using a Node.js API, React and MongoDB.
 
 ## What does the website look like ?
-![](https://github.com/SimonGuilbert/Pizzeria/images/home.png)
+![](https://github.com/SimonGuilbert/Pizzeria/blob/master/images/home.PNG)
 
 ## How to see the website ? - Instructions
 1. Install [node.js](https://nodejs.org/en/download/), [React](https://www.tutorialspoint.com/reactjs/reactjs_environment_setup.htm) and [mongoDB](https://docs.mongodb.com/manual/installation/)
